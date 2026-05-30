@@ -1,0 +1,33 @@
+<button onclick="findLocation()">Find Nearby Events</button>
+<p id="locationOutput"></p>
+
+<script>
+  function findLocation() {
+    const output = document.getElementById('locationOutput');
+    
+    if (!navigator.geolocation) {
+      output.innerText = "Geolocation is not supported by your browser.";
+      return;
+    }
+
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        output.innerText = `Lat: ${position.coords.latitude}, Long: ${position.coords.longitude}`;
+      },
+      (error) => {
+        switch(error.code) {
+          case error.PERMISSION_DENIED: output.innerText = "Permission denied."; break;
+          case error.TIMEOUT: output.innerText = "Request timed out."; break;
+          default: output.innerText = "Error occurred.";
+        }
+      },
+      options
+    );
+  }
+</script>
