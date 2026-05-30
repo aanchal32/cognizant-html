@@ -1,0 +1,41 @@
+<form action="/submit-registration" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" placeholder="Enter your full name" required autofocus>
+  <br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" placeholder="email@example.com" required>
+  <br>
+
+  <label for="date">Event Date:</label>
+  <input type="date" id="date" name="date" required>
+  <br>
+
+  <label for="eventType">Event Type:</label>
+  <select id="eventType" name="eventType" required>
+    <option value="">--Select an event--</option>
+    <option value="charity">Charity Run</option>
+    <option value="art">Art Fair</option>
+    <option value="food">Food Festival</option>
+  </select>
+  <br>
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" placeholder="Optional comments"></textarea>
+  <br>
+
+  <button type="submit">Register</button>
+</form>
+
+<output id="confirmationMessage"></output>
+
+<style>
+  form {
+    max-width: 400px;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+  }
+  label { display: block; margin-top: 10px; }
+  input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+</style>
