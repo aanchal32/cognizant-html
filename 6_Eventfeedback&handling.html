@@ -1,0 +1,41 @@
+<!-- HTML Structure -->
+<form id="feedbackForm">
+  <label for="phone">Phone Number:</label>
+  <input type="text" id="phone" onblur="validatePhone(this.value)">
+  <span id="phoneError" style="color:red;"></span>
+
+  <label for="eventSelect">Select Event:</label>
+  <select id="eventSelect" onchange="showFee(this.value)">
+    <option value="none">Select...</option>
+    <option value="charity">Charity Run ($20)</option>
+    <option value="art">Art Fair ($10)</option>
+  </select>
+  <p id="feeDisplay"></p>
+
+  <textarea id="feedbackText" onkeyup="countChars(this.value)"></textarea>
+  <p>Characters: <span id="charCount">0</span></p>
+
+  <button type="button" onclick="confirmSubmission()">Submit</button>
+</form>
+
+<img src="event1.jpg" ondblclick="enlargeImage(this)" style="width:100px;">
+
+<script>
+  function validatePhone(val) {
+    if (!/^\d{10}$/.test(val)) document.getElementById('phoneError').innerText = "Invalid phone";
+    else document.getElementById('phoneError').innerText = "";
+  }
+
+  function showFee(val) {
+    const fees = { charity: "$20", art: "$10" };
+    document.getElementById('feeDisplay').innerText = "Fee: " + (fees[val] || "");
+  }
+
+  function confirmSubmission() { alert("Confirmed!"); }
+
+  function enlargeImage(img) { img.style.width = "300px"; }
+
+  function countChars(val) {
+    document.getElementById('charCount').innerText = val.length;
+  }
+</script>
