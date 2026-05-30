@@ -1,14 +1,89 @@
-<form id="regForm">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name">
-  
-  <button type="button" onclick="submitForm()">Register</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chrome DevTools Debugging Demo</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    padding:20px;
+}
+
+/* Layout issue intentionally */
+.container{
+    width:600px;
+    background:white;
+    padding:20px;
+    border:2px solid #333;
+    margin:auto;
+    overflow:hidden;
+}
+
+.box{
+    width:500px; /* Intentional bug */
+    background:tomato;
+    color:white;
+    padding:20px;
+    margin-top:10px;
+}
+
+button{
+    padding:10px 15px;
+    background:green;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Chrome DevTools Debugging Practice</h1>
+
+<div class="container">
+    <h3>User Profile</h3>
+    <p id="name">Rahul Sharma</p>
+
+    <div class="box">
+        This box is wider than the container (Layout Issue)
+    </div>
+
+    <br>
+    <button onclick="showUser()">Show User</button>
+</div>
 
 <script>
-  function submitForm() {
-    // FIX: Changed 'username' to 'name' to match the input ID
-    let username = document.getElementById('name').value; 
-    console.log("Submitting for: " + username);
-  }
+
+console.log("Script Loaded Successfully");
+
+let user = {
+    id: 101,
+    name: "Rahul",
+    age: 22
+};
+
+function showUser(){
+
+    console.log("Button Clicked");
+
+    // Breakpoint yahan lagao
+    let totalMarks = 450;
+    let subjects = 5;
+    let average = totalMarks / subjects;
+
+    console.log("Average:", average);
+
+    // Intentional JS Error
+    console.log(user.email.toUpperCase());
+
+    alert("User Name: " + user.name);
+}
+
 </script>
+
+</body>
+</html>
