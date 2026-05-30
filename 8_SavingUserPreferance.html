@@ -1,0 +1,24 @@
+<!-- Script for saving preferences -->
+<script>
+  // Save preference on change
+  function savePreference(type) {
+    localStorage.setItem('preferredEvent', type);
+  }
+
+  // Retrieve on page load
+  window.onload = function() {
+    const saved = localStorage.getItem('preferredEvent');
+    if (saved) {
+      document.getElementById('eventType').value = saved;
+    }
+  };
+
+  // Clear function
+  function clearPreferences() {
+    localStorage.clear();
+    sessionStorage.clear();
+    alert("Preferences cleared.");
+  }
+</script>
+
+<button onclick="clearPreferences()">Clear Preferences</button>
