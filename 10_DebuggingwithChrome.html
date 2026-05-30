@@ -1,0 +1,14 @@
+<form id="regForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+  
+  <button type="button" onclick="submitForm()">Register</button>
+</form>
+
+<script>
+  function submitForm() {
+    // FIX: Changed 'username' to 'name' to match the input ID
+    let username = document.getElementById('name').value; 
+    console.log("Submitting for: " + username);
+  }
+</script>
